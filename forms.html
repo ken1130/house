@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>需求表單｜光陽團隊</title><link rel="stylesheet" href="/styles.css"></head><body class="form-document"><main><form class="lead-form" name="buyer-inquiry" method="POST" data-lead-form data-form-kind="買方找房">
+          <input type="hidden" name="form-name" value="buyer-inquiry">
+          <p class="sr-only"><label>請勿填寫此欄位 <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="form-field"><span>怎麼稱呼你 *</span><input type="text" name="name" maxlength="50" autocomplete="name" placeholder="例如：林小姐" required></label>
+          <label class="form-field"><span>聯絡電話 *</span><input type="tel" name="phone" maxlength="40" autocomplete="tel" inputmode="tel" placeholder="09xx-xxx-xxx" required></label>
+          <label class="form-field"><span>想找的區域 *</span><input type="text" name="preferred-area" maxlength="200" placeholder="例如：北屯、西屯、捷運沿線" required></label>
+          <label class="form-field"><span>總價預算 *</span><input type="text" name="budget" maxlength="100" inputmode="numeric" placeholder="例如：1,500 萬內" required></label>
+          <label class="form-field"><span>希望房型</span><select name="property-type"><option value="不限">不限</option><option value="電梯大樓">電梯大樓</option><option value="華廈">華廈</option><option value="公寓">公寓</option><option value="透天">透天</option><option value="土地">土地</option></select></label>
+          <label class="form-field"><span>房數</span><select name="rooms"><option value="不限">不限</option><option value="1房">1 房</option><option value="2房">2 房</option><option value="3房">3 房</option><option value="4房以上">4 房以上</option></select></label>
+          <label class="form-field form-field--full"><span>其他重要條件</span><textarea name="requirements" rows="5" maxlength="1500" placeholder="例如：一定要平面車位、走路可到捷運、需要學區、可接受整理⋯"></textarea></label>
+          <details class="privacy-notice form-field--full" id="buyerPrivacyNotice">
+            <summary>個人資料蒐集告知事項</summary>
+            <div class="privacy-notice__body">
+              <p><strong>蒐集者：</strong>光陽房屋仲介企業有限公司。</p>
+              <p><strong>蒐集目的：</strong>回覆找房需求、提供房產諮詢、物件媒合及後續聯絡。</p>
+              <p><strong>資料類別：</strong>姓名、電話、希望區域、預算、房型與你主動提供的需求內容。</p>
+              <p><strong>利用期間：</strong>自填表日起一年；若後續成立委託、契約或其他服務關係，依該關係及法令所需期間保存。</p>
+              <p><strong>資料會由誰、在哪裡、怎麼使用：</strong>只有本公司授權人員可以使用你的資料，並會在台灣透過電話、電子郵件或通訊軟體與你聯絡。</p>
+              <p><strong>表單傳送方式：</strong>資料透過網站主機轉送至 Google Apps Script，分別保存於本公司私人 Google 試算表的找房需求或售屋評估分頁，並寄送通知供授權人員處理；Netlify 與 Google 的系統可能在境外處理資料。</p>
+              <p><strong>你的權利：</strong>可依法請求查詢、閱覽、製給複製本、補充、更正、停止蒐集／處理／利用或刪除。請洽永慶台中市政中心店 0978-536-135、永慶台中經貿敦化店 0978-536-751、永義經貿中清捷運店 0905-118-665，或寄信至 ssunhouse888@gmail.com。</p>
+              <p><strong>不提供的影響：</strong>你可自由選擇是否提供；若未提供必要欄位，我們可能無法聯絡或提供媒合服務。</p>
+            </div>
+          </details>
+          <label class="form-consent form-field--full"><input type="checkbox" name="privacy-consent" value="同意" required><span>我已閱讀並同意「個人資料蒐集告知事項」，同意依上述目的使用我的資料。</span></label>
+          <button class="form-submit form-field--full" type="submit" disabled>送出找房需求 <b>→</b></button>
+          <p class="form-status form-field--full" role="status" aria-live="polite"></p>
+        </form><form class="lead-form" name="seller-inquiry" method="POST" data-lead-form data-form-kind="屋主售屋">
+          <input type="hidden" name="form-name" value="seller-inquiry">
+          <p class="sr-only"><label>請勿填寫此欄位 <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="form-field"><span>怎麼稱呼你 *</span><input type="text" name="name" maxlength="50" autocomplete="name" placeholder="例如：陳先生" required></label>
+          <label class="form-field"><span>聯絡電話 *</span><input type="tel" name="phone" maxlength="40" autocomplete="tel" inputmode="tel" placeholder="09xx-xxx-xxx" required></label>
+          <label class="form-field form-field--full"><span>房屋地址或社區 *</span><input type="text" name="property-area" maxlength="300" placeholder="知道路名或社區名稱即可" required></label>
+          <label class="form-field"><span>房屋類型</span><select name="property-type"><option value="尚未選擇">請選擇</option><option value="電梯大樓">電梯大樓</option><option value="華廈">華廈</option><option value="公寓">公寓</option><option value="透天">透天</option><option value="店面／辦公">店面／辦公</option><option value="土地">土地</option></select></label>
+          <label class="form-field"><span>希望多久內出售</span><select name="selling-timeline"><option value="尚未決定">尚未決定</option><option value="3個月內">3 個月內</option><option value="半年內">半年內</option><option value="一年內">一年內</option><option value="時間彈性">時間彈性</option></select></label>
+          <label class="form-field form-field--full"><span>想先了解什麼？</span><textarea name="seller-notes" rows="5" maxlength="1500" placeholder="例如：想知道目前行情、已有其他仲介銷售、近期可能換屋⋯"></textarea></label>
+          <details class="privacy-notice form-field--full" id="sellerPrivacyNotice">
+            <summary>個人資料蒐集告知事項</summary>
+            <div class="privacy-notice__body">
+              <p><strong>蒐集者：</strong>光陽房屋仲介企業有限公司。</p>
+              <p><strong>蒐集目的：</strong>回覆售屋需求、提供房產評估、委託諮詢及後續聯絡。</p>
+              <p><strong>資料類別：</strong>姓名、電話、房屋地址或社區、房屋類型、出售規劃與你主動提供的需求內容。</p>
+              <p><strong>利用期間：</strong>自填表日起一年；若後續成立委託、契約或其他服務關係，依該關係及法令所需期間保存。</p>
+              <p><strong>資料會由誰、在哪裡、怎麼使用：</strong>只有本公司授權人員可以使用你的資料，並會在台灣透過電話、電子郵件或通訊軟體與你聯絡。</p>
+              <p><strong>表單傳送方式：</strong>資料透過網站主機轉送至 Google Apps Script，分別保存於本公司私人 Google 試算表的找房需求或售屋評估分頁，並寄送通知供授權人員處理；Netlify 與 Google 的系統可能在境外處理資料。</p>
+              <p><strong>你的權利：</strong>可依法請求查詢、閱覽、製給複製本、補充、更正、停止蒐集／處理／利用或刪除。請洽永慶台中市政中心店 0978-536-135、永慶台中經貿敦化店 0978-536-751、永義經貿中清捷運店 0905-118-665，或寄信至 ssunhouse888@gmail.com。</p>
+              <p><strong>不提供的影響：</strong>你可自由選擇是否提供；若未提供必要欄位，我們可能無法聯絡或提供售屋評估服務。</p>
+            </div>
+          </details>
+          <label class="form-consent form-field--full"><input type="checkbox" name="privacy-consent" value="同意" required><span>我已閱讀並同意「個人資料蒐集告知事項」，同意依上述目的使用我的資料。</span></label>
+          <button class="form-submit form-field--full" type="submit" disabled>送出委託評估需求 <b>→</b></button>
+          <p class="form-status form-field--full" role="status" aria-live="polite"></p>
+        </form></main><script src="/forms.js"></script></body></html>

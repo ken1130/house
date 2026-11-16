@@ -1,0 +1,9 @@
+# GitHub Pages 預覽版的輸出，由 tools/build-pages.py 產生
+_site/
+
+# 內部筆記（API 註記、待辦盤點、要問業主的問題）。
+# 這個儲存庫是公開的，所以先不上傳；要納入版控時刪掉這一行。
+docs/
+
+__pycache__/
+.DS_Store
