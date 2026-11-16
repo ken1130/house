@@ -27,7 +27,7 @@ python3 -m http.server 47821
 
 ## 預覽版怎麼發布
 
-推送到 `main` 後，GitHub Actions 會自動執行 `tools/build-pages.py` 並發布。
+推送到 `main` 後，GitHub Actions 會自動執行 `tools/build-pages.py`，把結果放到 `gh-pages` 分支，GitHub Pages 從該分支發布。
 
 GitHub Pages 的網址多一層 `/house/`，所以腳本會在發布用的複本裡把根路徑（例如 `/styles.css`）改成 `/house/styles.css`，並加上不給搜尋引擎收錄的標記。**原始檔不會被修改**，之後搬到自己的主機時直接用原始檔。
 

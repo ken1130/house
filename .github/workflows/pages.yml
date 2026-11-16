@@ -1,14 +1,15 @@
 name: 發布預覽版到 GitHub Pages
 
+# 推送到 main 時，產生預覽版並放到 gh-pages 分支。
+# GitHub Pages 設定為「從 gh-pages 分支發布」。
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -17,15 +18,18 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: 產生預覽版（根路徑加上 /儲存庫名稱 前綴）
-        run: python3 tools/build-pages.py _site "/${{ github.event.repository.name }}"
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-      - id: deployment
-        uses: actions/deploy-pages@v4
+        run: python3 tools/build-pages.py "$RUNNER_TEMP/site" "/${{ github.event.repository.name }}"
+      - name: 推送到 gh-pages 分支
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd "$RUNNER_TEMP/site"
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "發布預覽版：${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
